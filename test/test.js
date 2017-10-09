@@ -29,3 +29,10 @@ LyngkTestCase.prototype.testInvalid=function(){
     assertTrue(C.toString() === 'invalid');
 };
 
+// Test cinquième histoire
+LyngkTestCase.prototype.testClone=function(){
+    var C = new Lyngk.Coordinates('B',4);
+    var C2 = C.clonage();
+
+    assertTrue(C.getLigne() == C2.getLigne() && C.getColonne() == C2.getColonne())
+};

@@ -165,26 +165,25 @@ LyngkTestCase.prototype.testVraiDebutJeu=function(){
 
     listInter.forEach(function(elem){
        elem.getListPiece().forEach(function(piece){
-            if(piece.getCouleur() === 'WHITE'){
+           if(piece.getCouleur() === 5){
                 compteurBlancs++;
-            }
-           if(piece.getCouleur() === 'BLACK'){
+           }
+           if(piece.getCouleur() === 0){
                compteurNoir++;
            }
-           if(piece.getCouleur() === 'IVORY'){
+           if(piece.getCouleur() === 1){
                compteurIvoire++;
            }
-           if(piece.getCouleur() === 'BLUE'){
+           if(piece.getCouleur() === 2){
                compteurBleu++;
            }
-           if(piece.getCouleur() === 'RED'){
+           if(piece.getCouleur() === 3){
                compteurRouge++;
            }
-           if(piece.getCouleur() === 'GREEN'){
+           if(piece.getCouleur() === 4){
                compteurVert++;
            }
         });
     });
-
-    assertTrue(compteurBlancs ===3 && compteurBleu+compteurIvoire+compteurNoir+compteurRouge+compteurVert===5);
+    assertTrue(compteurBlancs ===129 && compteurBleu+compteurIvoire+compteurNoir+compteurRouge+compteurVert===215);
 };

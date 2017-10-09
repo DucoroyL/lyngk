@@ -9,5 +9,8 @@ Lyngk.Engine = function () {
         if(inter.getListPiece().length===1){
             inter.setState("ONE_PIECE");
         }
+        if(inter.getListPiece().length>1 && length<5){
+            inter.setState("STACK");
+        }
     }
 };

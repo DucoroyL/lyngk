@@ -90,8 +90,8 @@ LyngkTestCase.prototype.testIntersec=function() {
 LyngkTestCase.prototype.testOnePiece=function(){
     var newEngine = new Lyngk.Engine();
     var coords=new Lyngk.Coordinates('A',3);
-    var inter=new Lyngk.Intersection(coords, 'Blue');
-    var piece= new Lyngk.Piece(coords, 'Blue');
+    var inter=new Lyngk.Intersection(coords, 'BLUE');
+    var piece= new Lyngk.Piece(coords, 'BLUE');
     newEngine.poser(inter, piece);
     assertTrue(inter.getState() === 1);
 

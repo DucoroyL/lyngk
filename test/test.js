@@ -36,3 +36,26 @@ LyngkTestCase.prototype.testClone=function(){
 
     assertTrue(C.getLigne() == C2.getLigne() && C.getColonne() == C2.getColonne())
 };
+
+// Test sixème histoire
+LyngkTestCase.prototype.testHash=function(){
+    var lettres="ABCDEFGHI";
+    var incorrect = 0;
+    for (var i =0; i<lettres.length; i++){
+        for (var j = 1; j<=9; j++){
+
+            var C=new Lyngk.Coordinates(lettres[i],j);
+            if(C.valid()){
+                for (var k =0; k<lettres.length; k++){
+                    for (var l = 1; l<=9; l++){
+                        var C1= new Lyngk.Coordinates(lettres[k],l);
+                        if(C.hashage() == C1.hashage() && C.getColonne() == C1.getColonne() && C.getLigne() == C1.getColonne()){
+                            incorrect++;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    assertTrue(incorrect!=0);
+};

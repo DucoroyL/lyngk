@@ -13,24 +13,19 @@ LyngkTestCase.prototype.test1=function(){
             }
         }
     }
-    console.log(compteur);
     assertTrue(compteur===43);
 };
 
 // Test troisième histoire
 LyngkTestCase.prototype.testToString=function(){
-    var c = 'A';
-    var l = 2;
-    var finalS = c+l;
-    var C = new Lyngk.Coordinates(c,l);
-    console.log(finalS);
-    assertTrue(C.toString() === finalS );
+    var C = new Lyngk.Coordinates('B',4);
+    assertTrue(C.toString() ==  C );
 
 };
 
 // Test quatrième histoire
 LyngkTestCase.prototype.testInvalid=function(){
     var C = new Lyngk.Coordinates('A',1);
-    console.log(C);
     assertTrue(C.toString() === 'invalid');
 };
+

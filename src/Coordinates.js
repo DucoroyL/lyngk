@@ -29,5 +29,16 @@ Lyngk.Coordinates = function (c, l) {
         }
 
     }
+
+    this.getLigne=function() {
+        return ligne;
+    }
+    this.getColonne=function() {
+        return colonne;
+    }
+
+    this.clonage=function() {
+        return new Lyngk.Coordinates(c,l);
+    }
 };
 

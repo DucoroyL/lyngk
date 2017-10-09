@@ -66,3 +66,22 @@ LyngkTestCase.prototype.testHash=function(){
     }
     assertTrue(incorrect===0);
 };
+
+// Test septième histoire
+LyngkTestCase.prototype.testIntersec=function() {
+    var lettres="ABCDEFGHI";
+    var compteur=0;
+    for (var i =0; i<lettres.length; i++){
+        for (var j = 1; j<=9; j++){
+            var C=new Lyngk.Coordinates(lettres[i],j);
+            if(C.valid()){
+                var intersec = new Lyngk.Intersection(C);
+                // Intersection doit avoir l'état VACANT au départ
+                if(intersec.getState() !== 0){
+                    compteur++;
+                }
+            }
+        }
+    }
+    assertTrue(compteur ===0);
+};

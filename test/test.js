@@ -109,3 +109,19 @@ LyngkTestCase.prototype.testOnePiece=function(){
     assertTrue(inter.getState() === 2);
 
 };
+
+// Test dixième histoire
+LyngkTestCase.prototype.testFivePiece=function(){
+    var newEngine = new Lyngk.Engine();
+    var coords=new Lyngk.Coordinates('A',3);
+    var inter=new Lyngk.Intersection(coords, 'RED');
+    var pieceB=new Lyngk.Piece(coords, 'BLUE');
+    var pieceR= new Lyngk.Piece(coords, 'RED');
+    newEngine.poser(inter, pieceB);
+    newEngine.poser(inter, pieceB);
+    newEngine.poser(inter, pieceB);
+    newEngine.poser(inter, pieceB);
+    newEngine.poser(inter, pieceR);
+    assertTrue(inter.getState() === 3);
+
+};

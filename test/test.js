@@ -15,3 +15,13 @@ LyngkTestCase.prototype.test1=function(){
     console.log(compteur);
     assertTrue(compteur===43);
 };
+
+LyngkTestCase.prototype.testToString=function(){
+    var c = 'A';
+    var l = 2;
+    var finalS = c+l;
+    var C = new Lyngk.Coordinates(c,l);
+    console.log(finalS);
+    assertTrue(C.toString() === finalS );
+
+};

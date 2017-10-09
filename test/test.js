@@ -125,3 +125,66 @@ LyngkTestCase.prototype.testFivePiece=function(){
     assertTrue(inter.getState() === 3);
 
 };
+
+// Test onzième histoire
+LyngkTestCase.prototype.testDebutJeu=function(){
+    var lettres="ABCDEFGHI";
+    var compteur=0;
+    var newEngine = new Lyngk.Engine();
+    var tabInter=[];
+    var tabPiece=[];
+
+    for (var i =0; i<lettres.length; i++){
+        for (var j = 1; j<=9; j++){
+            var coords=new Lyngk.Coordinates(lettres[i],j);
+            if(coords.valid()){
+                tabInter.push(new Lyngk.Intersection(coords, 'BLUE'));
+                tabPiece.push(new Lyngk.Piece(coords, 'BLUE'));
+                newEngine.poser(tabInter[tabInter.length-1],tabPiece[tabPiece.length-1]);
+            }
+        }
+    }
+    for (var i =0; i<tabInter.length; i++){
+       if( tabInter[i].getState() !== 1){
+           compteur++;
+        }
+    }
+    assertTrue(compteur===0);
+};
+
+// Test douzième histoire
+LyngkTestCase.prototype.testVraiDebutJeu=function(){
+    var newEngine = new Lyngk.Engine();
+    var listInter=newEngine.debutJeu();
+    var compteurBlancs=0;
+    var compteurNoir=0;
+    var compteurIvoire=0;
+    var compteurBleu=0;
+    var compteurRouge=0;
+    var compteurVert=0;
+
+    listInter.forEach(function(elem){
+       elem.getListPiece().forEach(function(piece){
+            if(piece.getCouleur() === 'WHITE'){
+                compteurBlancs++;
+            }
+           if(piece.getCouleur() === 'BLACK'){
+               compteurNoir++;
+           }
+           if(piece.getCouleur() === 'IVORY'){
+               compteurIvoire++;
+           }
+           if(piece.getCouleur() === 'BLUE'){
+               compteurBleu++;
+           }
+           if(piece.getCouleur() === 'RED'){
+               compteurRouge++;
+           }
+           if(piece.getCouleur() === 'GREEN'){
+               compteurVert++;
+           }
+        });
+    });
+
+    assertTrue(compteurBlancs ===3 && compteurBleu+compteurIvoire+compteurNoir+compteurRouge+compteurVert===5);
+};

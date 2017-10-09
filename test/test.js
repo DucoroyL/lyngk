@@ -1,5 +1,6 @@
 'use strict';
 
+// Tests deux premières histoires
 var LyngkTestCase = TestCase("LyngkTestCase");
 LyngkTestCase.prototype.test1=function(){
     var lettres="ABCDEFGHI";
@@ -16,6 +17,7 @@ LyngkTestCase.prototype.test1=function(){
     assertTrue(compteur===43);
 };
 
+// Test troisième histoire
 LyngkTestCase.prototype.testToString=function(){
     var c = 'A';
     var l = 2;
@@ -24,4 +26,13 @@ LyngkTestCase.prototype.testToString=function(){
     console.log(finalS);
     assertTrue(C.toString() === finalS );
 
+};
+
+// Test quatrième histoire
+LyngkTestCase.prototype.testToString=function(){
+    var c = 'A';
+    var l=1;
+    var finalS = c+l;
+    var C = new Lyngk.Coordinates(c,l);
+    assertTrue(C.toString() === 'invalid');
 };

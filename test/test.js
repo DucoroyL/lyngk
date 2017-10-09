@@ -85,3 +85,14 @@ LyngkTestCase.prototype.testIntersec=function() {
     }
     assertTrue(compteur ===0);
 };
+
+// Test huitieme histoire
+LyngkTestCase.prototype.testOnePiece=function(){
+    var newEngine = new Lyngk.Engine();
+    var coords=new Lyngk.Coordinates('A',3);
+    var inter=new Lyngk.Intersection(coords, 'Blue');
+    var piece= new Lyngk.Piece(coords, 'Blue');
+    newEngine.poser(inter, piece);
+    assertTrue(inter.getState() === 1);
+
+};

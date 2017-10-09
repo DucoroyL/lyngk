@@ -16,4 +16,27 @@ Lyngk.Engine = function () {
             inter.setState("FULL_STACK");
         }
     }
+
+    this.debutJeu= function(){
+        var tabColor=["BLACK","IVORY","BLUE","RED","GREEN","WHITE","WHITE","WHITE"];
+        var tabInter=[];
+        var tabPiece=[];
+
+        var lettres="ABCDEFGHI";
+        for (var i =0; i<lettres.length; i++){
+            for (var j = 1; j<=9; j++){
+                var coords=new Lyngk.Coordinates(lettres[i],j);
+                if(coords.valid()){
+                    tabInter.push(new Lyngk.Intersection(coords, 'WHITE'));
+
+                    for(var k=0; k<tabColor.length; k++){
+                        tabPiece.push(new Lyngk.Piece(coords, tabColor[k]));
+                        this.poser(tabInter[tabInter.length-1],tabPiece[tabPiece.length-1]);
+                    }
+                }
+
+            }
+        }
+        return tabInter;
+    }
 };

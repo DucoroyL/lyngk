@@ -96,3 +96,16 @@ LyngkTestCase.prototype.testOnePiece=function(){
     assertTrue(inter.getState() === 1);
 
 };
+
+// Test neuvième histoire
+LyngkTestCase.prototype.testOnePiece=function(){
+    var newEngine = new Lyngk.Engine();
+    var coords=new Lyngk.Coordinates('A',3);
+    var inter=new Lyngk.Intersection(coords, 'RED');
+    var pieceB=new Lyngk.Piece(coords, 'BLUE');
+    var pieceR= new Lyngk.Piece(coords, 'RED');
+    newEngine.poser(inter, pieceB);
+    newEngine.poser(inter, pieceR);
+    assertTrue(inter.getState() === 2);
+
+};

@@ -40,5 +40,9 @@ Lyngk.Coordinates = function (c, l) {
     this.clonage=function() {
         return new Lyngk.Coordinates(c,l);
     }
+
+    this.hashage=function() {
+        return parseInt(c.charCodeAt(0)-65+''+l);
+    }
 };
 

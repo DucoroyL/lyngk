@@ -29,10 +29,8 @@ LyngkTestCase.prototype.testToString=function(){
 };
 
 // Test quatrième histoire
-LyngkTestCase.prototype.testToString=function(){
-    var c = 'A';
-    var l=1;
-    var finalS = c+l;
-    var C = new Lyngk.Coordinates(c,l);
+LyngkTestCase.prototype.testInvalid=function(){
+    var C = new Lyngk.Coordinates('A',1);
+    console.log(C);
     assertTrue(C.toString() === 'invalid');
 };

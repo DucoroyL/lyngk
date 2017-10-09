@@ -19,10 +19,15 @@ Lyngk.Coordinates = function (c, l) {
         if(l>=dansTab[c][0] && l<=dansTab[c][1]){
             return true;
         }
-    }
+    };
 
     this.toString=function() {
-        return c+l;
+        if(this.valid() === true)
+            return c+l;
+        else{
+            return 'invalid';
+        }
+
     }
 };
 

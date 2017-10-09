@@ -12,5 +12,8 @@ Lyngk.Engine = function () {
         if(inter.getListPiece().length>1 && length<5){
             inter.setState("STACK");
         }
+        if(inter.getListPiece().length>=5){
+            inter.setState("FULL_STACK");
+        }
     }
 };

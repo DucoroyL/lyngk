@@ -163,6 +163,7 @@ LyngkTestCase.prototype.testVraiDebutJeu=function(){
     var compteurRouge=0;
     var compteurVert=0;
 
+    
     listInter.forEach(function(elem){
        elem.getListPiece().forEach(function(piece){
            if(piece.getCouleur() === 5){
@@ -185,5 +186,6 @@ LyngkTestCase.prototype.testVraiDebutJeu=function(){
            }
         });
     });
-    assertTrue(compteurBlancs ===129 && compteurBleu+compteurIvoire+compteurNoir+compteurRouge+compteurVert===215);
+    assertTrue(compteurBlancs ===129 && compteurBleu ===43 && compteurIvoire ===43 && compteurNoir &&
+        compteurRouge ===43 && compteurVert===43);
 };

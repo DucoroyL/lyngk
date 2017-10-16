@@ -187,7 +187,19 @@ LyngkTestCase.prototype.testVraiDebutJeu=function(){
            }
         });
     });
-    console.log(compteurBlancs +" "+compteurBleu+" "+compteurIvoire+" "+compteurNoir+" "+compteurRouge+" "+compteurVert);
     assertTrue(compteurBlancs ===3 && compteurBleu ===8 && compteurIvoire ===8 && compteurNoir &&
         compteurRouge ===8 && compteurVert===8);
 };
+
+LyngkTestCase.prototype.testHauteur=function() {
+    var newEngine = new Lyngk.Engine();
+    newEngine.debutJeu();
+    var listInter = newEngine.getTabInter();
+    var compteur=0;
+    listInter.forEach(function(elem){
+            var hauteur = elem.getListPiece().length;
+            if(hauteur!==1)
+                compteur++
+        });
+    assertTrue(compteur === 0);
+}

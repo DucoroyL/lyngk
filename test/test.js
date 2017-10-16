@@ -230,6 +230,5 @@ LyngkTestCase.prototype.testDeplacementList=function() {
     var couleur1Piece=inter1.getColor();
     newEngine.deplacementPiece(inter1, inter2);
     var couleur2Piece=inter2.getColor();
-
-    assertTrue(couleur1Piece === couleur2Piece && inter1.length === 0);
+    assertTrue(couleur1Piece === couleur2Piece && inter1.getListPiece().length === 0);
 }

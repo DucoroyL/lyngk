@@ -9,7 +9,7 @@ Lyngk.Engine = function () {
 
     this.getTabInter= function(){
         return tabInter;
-    }
+    };
 
     this.poser=function(inter, piece){
         inter.setListPiece(piece);
@@ -22,7 +22,7 @@ Lyngk.Engine = function () {
         if(inter.getListPiece().length>=5){
             inter.setState("FULL_STACK");
         }
-    }
+    };
 
     this.debutJeu= function(){
         var tabColor=["BLACK","IVORY","BLUE","RED","GREEN","WHITE"];
@@ -43,5 +43,9 @@ Lyngk.Engine = function () {
                 }
             }
         }
-    }
+    };
+    this.deplacementPiece= function(origine, cible){
+        cible.setListPiece(origine.getListPiece()[origine.getListPiece().length-1]);
+        origine.supprTopPiece();
+    };
 };

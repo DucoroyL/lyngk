@@ -90,8 +90,8 @@ LyngkTestCase.prototype.testIntersec=function() {
 LyngkTestCase.prototype.testOnePiece=function(){
     var newEngine = new Lyngk.Engine();
     var coords=new Lyngk.Coordinates('A',3);
-    var inter=new Lyngk.Intersection(coords, 'BLUE');
-    var piece= new Lyngk.Piece(coords, 'BLUE');
+    var inter=new Lyngk.Intersection(coords);
+    var piece= new Lyngk.Piece('BLUE');
     newEngine.poser(inter, piece);
     assertTrue(inter.getState() === 1);
 
@@ -101,9 +101,9 @@ LyngkTestCase.prototype.testOnePiece=function(){
 LyngkTestCase.prototype.testOnePiece=function(){
     var newEngine = new Lyngk.Engine();
     var coords=new Lyngk.Coordinates('A',3);
-    var inter=new Lyngk.Intersection(coords, 'RED');
-    var pieceB=new Lyngk.Piece(coords, 'BLUE');
-    var pieceR= new Lyngk.Piece(coords, 'RED');
+    var inter=new Lyngk.Intersection(coords);
+    var pieceB=new Lyngk.Piece('BLUE');
+    var pieceR= new Lyngk.Piece('RED');
     newEngine.poser(inter, pieceB);
     newEngine.poser(inter, pieceR);
     assertTrue(inter.getState() === 2);
@@ -114,9 +114,9 @@ LyngkTestCase.prototype.testOnePiece=function(){
 LyngkTestCase.prototype.testFivePiece=function(){
     var newEngine = new Lyngk.Engine();
     var coords=new Lyngk.Coordinates('A',3);
-    var inter=new Lyngk.Intersection(coords, 'RED');
-    var pieceB=new Lyngk.Piece(coords, 'BLUE');
-    var pieceR= new Lyngk.Piece(coords, 'RED');
+    var inter=new Lyngk.Intersection(coords);
+    var pieceB=new Lyngk.Piece('BLUE');
+    var pieceR= new Lyngk.Piece('RED');
     newEngine.poser(inter, pieceB);
     newEngine.poser(inter, pieceB);
     newEngine.poser(inter, pieceB);
@@ -138,8 +138,8 @@ LyngkTestCase.prototype.testDebutJeu=function(){
         for (var j = 1; j<=9; j++){
             var coords=new Lyngk.Coordinates(lettres[i],j);
             if(coords.valid()){
-                tabInter.push(new Lyngk.Intersection(coords, 'BLUE'));
-                tabPiece.push(new Lyngk.Piece(coords, 'BLUE'));
+                tabInter.push(new Lyngk.Intersection(coords));
+                tabPiece.push(new Lyngk.Piece('BLUE'));
                 newEngine.poser(tabInter[tabInter.length-1],tabPiece[tabPiece.length-1]);
             }
         }
@@ -155,7 +155,8 @@ LyngkTestCase.prototype.testDebutJeu=function(){
 // Test douzième histoire
 LyngkTestCase.prototype.testVraiDebutJeu=function(){
     var newEngine = new Lyngk.Engine();
-    var listInter=newEngine.debutJeu();
+    newEngine.debutJeu();
+    var listInter=newEngine.getTabInter();
     var compteurBlancs=0;
     var compteurNoir=0;
     var compteurIvoire=0;
@@ -163,7 +164,7 @@ LyngkTestCase.prototype.testVraiDebutJeu=function(){
     var compteurRouge=0;
     var compteurVert=0;
 
-    
+
     listInter.forEach(function(elem){
        elem.getListPiece().forEach(function(piece){
            if(piece.getCouleur() === 5){
@@ -186,6 +187,7 @@ LyngkTestCase.prototype.testVraiDebutJeu=function(){
            }
         });
     });
-    assertTrue(compteurBlancs ===129 && compteurBleu ===43 && compteurIvoire ===43 && compteurNoir &&
-        compteurRouge ===43 && compteurVert===43);
+    console.log(compteurBlancs +" "+compteurBleu+" "+compteurIvoire+" "+compteurNoir+" "+compteurRouge+" "+compteurVert);
+    assertTrue(compteurBlancs ===3 && compteurBleu ===8 && compteurIvoire ===8 && compteurNoir &&
+        compteurRouge ===8 && compteurVert===8);
 };

@@ -1,7 +1,6 @@
 "use strict";
 
-Lyngk.Piece = function (c, newColor) {
-    var coor = c;
+Lyngk.Piece = function (newColor) {
     var couleur=Lyngk.Color[newColor];
 
     this.getCouleur = function(){

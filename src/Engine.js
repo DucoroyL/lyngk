@@ -12,7 +12,7 @@ Lyngk.Engine = function () {
     };
 
     this.poser=function(inter, piece){
-        inter.setListPiece(piece);
+        inter.addPiece(piece);
         if(inter.getListPiece().length===1){
             inter.setState("ONE_PIECE");
         }
@@ -45,7 +45,12 @@ Lyngk.Engine = function () {
         }
     };
     this.deplacementPiece= function(origine, cible){
-        cible.setListPiece(origine.getListPiece()[origine.getListPiece().length-1]);
+        cible.addPiece(origine.getListPiece()[origine.getListPiece().length-1]);
         origine.supprTopPiece();
+    };
+
+    this.deplacementPile= function(origine,cible){
+        cible.setListPiece(cible.getListPiece().concat(origine.getListPiece()));
+        origine.cleanList();
     };
 };

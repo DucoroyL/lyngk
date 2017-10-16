@@ -19,7 +19,7 @@ Lyngk.Intersection = function (c) {
         return listPiece;
     };
 
-    this.setListPiece=function(newPiece){
+    this.addPiece=function(newPiece){
         listPiece.push(newPiece);
     };
 
@@ -29,5 +29,13 @@ Lyngk.Intersection = function (c) {
 
     this.supprTopPiece=function(){
         listPiece.pop();
+    };
+
+    this.cleanList=function(){
+        listPiece=[];
+    };
+
+    this.setListPiece=function(listCible){
+        listPiece=listCible;
     };
 };

@@ -191,6 +191,7 @@ LyngkTestCase.prototype.testVraiDebutJeu=function(){
         compteurRouge ===8 && compteurVert===8);
 };
 
+// Treizième test
 LyngkTestCase.prototype.testHauteur=function() {
     var newEngine = new Lyngk.Engine();
     newEngine.debutJeu();
@@ -202,4 +203,15 @@ LyngkTestCase.prototype.testHauteur=function() {
                 compteur++
         });
     assertTrue(compteur === 0);
+}
+
+// Quatorzième test
+LyngkTestCase.prototype.testCouleurInter=function() {
+    var newEngine = new Lyngk.Engine();
+    newEngine.debutJeu();
+    var listInter = newEngine.getTabInter();
+    var random =Math.floor(Math.random()*43);
+    var listPiece = listInter[random].getListPiece();
+
+    assertTrue(listInter[random].getColor() === listPiece[listPiece.length-1].getCouleur());
 }

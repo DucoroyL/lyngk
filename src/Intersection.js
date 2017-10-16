@@ -22,4 +22,10 @@ Lyngk.Intersection = function (c) {
     this.setListPiece=function(newPiece){
         listPiece.push(newPiece);
     };
+
+    this.getColor=function(){
+        return listPiece[listPiece.length-1].getCouleur();
+    };
+
+
 };

@@ -217,7 +217,7 @@ LyngkTestCase.prototype.testCouleurInter=function() {
 }
 
 //Quinzième test
-LyngkTestCase.prototype.testDeplacementList=function() {
+LyngkTestCase.prototype.testDeplacementPiece=function() {
     var newEngine = new Lyngk.Engine();
     var coordA=new Lyngk.Coordinates('A',3);
     var coordB=new Lyngk.Coordinates('B',3);
@@ -232,3 +232,4 @@ LyngkTestCase.prototype.testDeplacementList=function() {
     var couleur2Piece=inter2.getColor();
     assertTrue(couleur1Piece === couleur2Piece && inter1.getListPiece().length === 0);
 }
+

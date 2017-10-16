@@ -215,3 +215,21 @@ LyngkTestCase.prototype.testCouleurInter=function() {
 
     assertTrue(listInter[random].getColor() === listPiece[listPiece.length-1].getCouleur());
 }
+
+//Quinzième test
+LyngkTestCase.prototype.testDeplacementList=function() {
+    var newEngine = new Lyngk.Engine();
+    var coordA=new Lyngk.Coordinates('A',3);
+    var coordB=new Lyngk.Coordinates('B',3);
+    var inter1=new Lyngk.Intersection(coordA);
+    var inter2=new Lyngk.Intersection(coordB);
+
+    newEngine.poser(inter1, new Lyngk.Piece('BLUE'));
+    newEngine.poser(inter2, new Lyngk.Piece('RED'));
+
+    var couleur1Piece=inter1.getColor();
+    newEngine.deplacementPiece(inter1, inter2);
+    var couleur2Piece=inter2.getColor();
+
+    assertTrue(couleur1Piece === couleur2Piece && inter1.length === 0);
+}

@@ -39,4 +39,8 @@ Lyngk.Intersection = function (c) {
     this.setListPiece=function(listCible){
         listPiece=listCible;
     };
+
+    this.getCoord=function(){
+        return coords;
+    }
 };

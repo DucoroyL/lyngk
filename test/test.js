@@ -284,8 +284,8 @@ LyngkTestCase.prototype.testDeplacementLigneDroite=function() {
     var coordB2=new Lyngk.Coordinates('B',2);
     var coordC2=new Lyngk.Coordinates('C',2);
 
-    var inter1=new Lyngk.Intersection(coordB3);
-    var inter2=new Lyngk.Intersection(coordB2);
+    var inter2=new Lyngk.Intersection(coordB3);
+    var inter1=new Lyngk.Intersection(coordB2);
     var inter3=new Lyngk.Intersection(coordC2);
 
     newEngine.poser(inter1, new Lyngk.Piece('BLUE'));
@@ -299,5 +299,8 @@ LyngkTestCase.prototype.testDeplacementLigneDroite=function() {
     var etatCibleDeplacementAvant= inter3.getState();
     newEngine.deplacementPile(inter3, inter2);
     var etatCibleDeplacementApres= inter3.getState();
-    assertTrue(  etatOrigineDeplacementAvant !== etatOrigineDeplacementApres && etatCibleDeplacementAvant === etatCibleDeplacementApres)
+
+
+
+    assertTrue(  etatCibleDeplacementAvant !== etatOrigineDeplacementApres && etatCibleDeplacementAvant === etatCibleDeplacementApres)
 }

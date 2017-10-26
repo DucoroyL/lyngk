@@ -24,6 +24,12 @@ Lyngk.Engine = function () {
         }
     };
 
+    this.poserPile=function(origine, cible){
+       for (var i = 0; i<origine.getListPiece().length;i++){
+           this.poser(cible, origine.getListPiece()[i]);
+       }
+    };
+
     this.debutJeu= function(){
         var tabColor=["BLACK","IVORY","BLUE","RED","GREEN","WHITE"];
         var cptColor=[0,0,0,0,0,0];
@@ -50,7 +56,15 @@ Lyngk.Engine = function () {
     };
 
     this.deplacementPile= function(origine,cible){
-        cible.setListPiece(cible.getListPiece().concat(origine.getListPiece()));
-        origine.cleanList();
+        if(cible.getListPiece().length !==0 && this.mouvementValide(origine.getCoord(), cible.getCoord())){
+            this.poserPile(origine,cible);
+            origine.cleanList();
+        }
     };
+
+    this.mouvementValide= function(origine,cible){
+        if (origine.getLigne() === cible.getLigne() ^ origine.getColonne().charCodeAt(0) === cible.getColonne().charCodeAt(0)
+        ^ origine.getLigne()-cible.getLigne() === origine.getColonne().charCodeAt(0) - cible.getColonne().charCodeAt(0))
+            return true;
+    }
 };

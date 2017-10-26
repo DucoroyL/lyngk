@@ -33,6 +33,7 @@ Lyngk.Intersection = function (c) {
 
     this.cleanList=function(){
         listPiece=[];
+        this.setState("VACANT");
     };
 
     this.setListPiece=function(listCible){

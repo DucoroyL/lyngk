@@ -254,25 +254,25 @@ LyngkTestCase.prototype.testDeplacementList=function() {
 //17 test
 LyngkTestCase.prototype.test=function() {
     var newEngine = new Lyngk.Engine();
+    newEngine.debutJeu();
     var coordB3=new Lyngk.Coordinates('B',3);
     var coordB2=new Lyngk.Coordinates('B',2);
 
-    var inter1=new Lyngk.Intersection(coordB3);
-    var inter2=new Lyngk.Intersection(coordB2);
-    newEngine.poser(inter1, new Lyngk.Piece('BLUE'));
-    newEngine.poser(inter1, new Lyngk.Piece('BLACK'));
-    newEngine.poser(inter1, new Lyngk.Piece('RED'));
-    newEngine.poser(inter2, new Lyngk.Piece('RED'));
+    var interB2 = new Lyngk.Intersection(coordB2);
+    var interB3 = new Lyngk.Intersection(coordB3);
 
+    newEngine.poser(interB3, new Lyngk.Piece('BLUE'));
+    newEngine.poser(interB3, new Lyngk.Piece('BLACK'));
+    newEngine.poser(interB3, new Lyngk.Piece('RED'));
+    newEngine.poser(interB2, new Lyngk.Piece('RED'));
 
+    var etatOrigineDeplacementAvant= interB2.getState();
+    newEngine.deplacementPile(interB2, interB3);
+    var etatOrigineDeplacementApres= interB3.getState();
 
-    var etatOrigineDeplacementAvant= inter1.getState();
-    newEngine.deplacementPile(inter1, inter2);
-    var etatOrigineDeplacementApres= inter1.getState();
-
-    var etatCibleDeplacementAvant= inter2.getState();
-    newEngine.deplacementPile(inter2, inter1);
-    var etatCibleDeplacementApres= inter2.getState();
+    var etatCibleDeplacementAvant= interB3.getState();
+    newEngine.deplacementPile(interB3, interB2);
+    var etatCibleDeplacementApres= interB3.getState();
 
     assertTrue(  etatOrigineDeplacementAvant !== etatOrigineDeplacementApres && etatCibleDeplacementAvant === etatCibleDeplacementApres);
 }
@@ -302,5 +302,57 @@ LyngkTestCase.prototype.testDeplacementLigneDroite=function() {
 
 
 
-    assertTrue(  etatCibleDeplacementAvant !== etatOrigineDeplacementApres && etatCibleDeplacementAvant === etatCibleDeplacementApres)
+    assertTrue(  etatOrigineDeplacementAvant !== etatOrigineDeplacementApres && etatCibleDeplacementAvant === etatCibleDeplacementApres)
+}
+
+//19
+/*LyngkTestCase.prototype.testDeplacement19=function() {
+    var newEngine = new Lyngk.Engine();
+    newEngine.debutJeu();
+
+    var coordH5=new Lyngk.Coordinates('H', 5);
+    var coordI7=new Lyngk.Coordinates('I', 7);
+    var coordH6=new Lyngk.Coordinates('H', 6);
+    var coordH8=new Lyngk.Coordinates('H', 8);
+    var coordF5=new Lyngk.Coordinates('F', 5);
+    var coordF3=new Lyngk.Coordinates('F', 3);
+
+    var interH5=new Lyngk.Intersection('H', 5);
+    var interI7=new Lyngk.Intersection('I', 7);
+    var interH6=new Lyngk.Intersection('H', 6);
+    var interH8=new Lyngk.Intersection('H', 8);
+    var interF5=new Lyngk.Intersection('F', 5);
+    var interF3=new Lyngk.Intersection('F', 3);
+
+    var etatOrigineDeplacementAvant= interI7.getState();
+    console.log(etatOrigineDeplacementAvant);
+
+    newEngine.deplacementPile(interI7, interH6);
+    var etatOrigineDeplacementApres= interI7.getState();
+    console.log(etatOrigineDeplacementApres);
+    assertTrue( etatOrigineDeplacementAvant !== etatOrigineDeplacementApres);
+
+}*/
+
+//20
+LyngkTestCase.prototype.testPileMaxDeplacee=function() {
+    var newEngine = new Lyngk.Engine();
+    var coordB2=new Lyngk.Coordinates('B',2);
+    var coordB3=new Lyngk.Coordinates('B',3);
+    var coordB5=new Lyngk.Coordinates('B',5);
+    var coordC2=new Lyngk.Coordinates('C',2);
+    var coordD2=new Lyngk.Coordinates('D',2);
+    var coordE2=new Lyngk.Coordinates('E',2);
+
+    var interB2=new Lyngk.Intersection(coordB2);
+    var interB3=new Lyngk.Intersection(coordB3);
+    var interB5=new Lyngk.Intersection(coordB5)
+    var interC2=new Lyngk.Intersection(coordC2);
+    var interD2=new Lyngk.Intersection(coordD2);
+    var interE2=new Lyngk.Intersection(coordE2);
+
+
+    newEngine.poser(interB2, new Lyngk.Piece('BLUE'));
+    newEngine.poser(inter2, new Lyngk.Piece('RED'));
+    newEngine.poser(inter3, new Lyngk.Piece('BLUE'));
 }

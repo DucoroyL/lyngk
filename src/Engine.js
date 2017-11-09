@@ -56,7 +56,7 @@ Lyngk.Engine = function () {
     };
 
     this.deplacementPile= function(origine,cible){
-        if(cible.getListPiece().length !==0 && this.mouvementValide(origine.getCoord(), cible.getCoord())){
+        if(cible.getState() !==0 && this.mouvementValide(origine.getCoord(), cible.getCoord())){
             this.poserPile(origine,cible);
             origine.cleanList();
         }

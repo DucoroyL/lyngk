@@ -1,13 +1,13 @@
 "use strict";
 
 Lyngk.Piece = function (newColor) {
-    var couleur=Lyngk.Color[newColor];
+    var color = Lyngk.Color[newColor];
 
-    this.getCouleur = function(){
-        return couleur;
-    }
+    this.getColor = function () {
+        return color;
+    };
 
-    this.setCouleur = function(newCouleur){
-        couleur=Lyngk.Color[newCouleur];
-    }
+    this.setColor = function (newCouleur) {
+        color = Lyngk.Color[newCouleur];
+    };
 };

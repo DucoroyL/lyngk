@@ -1,10 +1,10 @@
 "use strict";
 
-Lyngk.Coordinates = function (c, l) {
-    var colonne=c;
-    var ligne=l;
+Lyngk.Coordinates = function (columnCoord, lineCoord) {
+    var column = columnCoord;
+    var line = lineCoord;
 
-    this.valid=function() {
+    this.isValid = function () {
         var dansTab = {
             "A": [3, 3],
             "B": [2, 5],
@@ -15,34 +15,32 @@ Lyngk.Coordinates = function (c, l) {
             "G": [3, 9],
             "H": [5, 8],
             "I": [7, 7]
-        }
-        if(l>=dansTab[c][0] && l<=dansTab[c][1]){
+        };
+        if (line >= dansTab[column][0] && line <= dansTab[column][1]) {
             return true;
         }
     };
 
-    this.toString=function() {
-        if(this.valid() === true)
-            return c+l;
-        else{
-            return 'invalid';
+    this.toString = function () {
+        if (this.isValid() === true) {
+            return column + line;
+        } else {
+            return "invalid";
         }
+    };
+    this.getLine = function () {
+        return line;
+    };
+    this.getColumn = function () {
+        return column;
+    };
 
-    }
+    this.clone = function () {
+        return new Lyngk.Coordinates(column, line);
+    };
 
-    this.getLigne=function() {
-        return ligne;
-    }
-    this.getColonne=function() {
-        return colonne;
-    }
-
-    this.clonage=function() {
-        return new Lyngk.Coordinates(c,l);
-    }
-
-    this.hashage=function() {
-        return parseInt(c.charCodeAt(0)-65+''+l);
-    }
+    this.hash = function () {
+        return parseInt(column.charCodeAt(0) - 65 + '' + line);
+    };
 };
 
